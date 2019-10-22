@@ -1,0 +1,486 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="CHG Coin Team">
+    <title>CHG DApp</title>
+    <link type="image/x-icon" rel="icon" href="images/favicon.ico">
+   
+    <!-- Bootstrap core CSS -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link href="lib/css/style.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-1 mx-auto flex-column">
+        
+        <header class="masthead mb-auto">
+
+            <div class="inner">
+                <h3 class="masthead-brand">
+                    <div class="logo">
+                        <a href="/">
+                            <img class="img img-responsive" src="images/logo.png">
+                        </a>
+                    </div>
+                </h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link active" href="market.html">Market</a>
+                    <a class="nav-link" href="register.html">Register</a>
+                </nav>
+            </div>
+                      
+            <div class="inner">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <br/>
+                        <h1 class="cover-heading">Energy is Money.</h1>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <br/>
+            <p class="lead">Using the power of the blockchain, <a target="_blank" href="https://chgcoin.org/"><b>Charg Coin (CHG)</b></a> facilitates crowdsourced energy distribution.</p>
+
+            <div id="mobile"></div>
+
+            <!-- ./balance -->
+            <div class="card-deck mb-3 text-center">
+
+                <div class="card mb-6 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">CHG Balance</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <h3 class="card-title pricing-card-title">
+                            <div class="row">
+                                <div class="col">
+                                    <span>Wallet: </span>
+                                </div>
+                                <div class="col">
+                                    <span id="chg-wallet-balance">0.00</span>
+                                    <small class="text-muted">CHG</small>
+                                </div>
+                            </div>
+                        </h3>
+                        <h3 class="card-title pricing-card-title">
+                            <div class="row">
+                                <div class="col">
+                                    <span>Market: </span>
+                                </div>
+                                <div class="col">
+                                    <span id="chg-market-balance">0.00</span>
+                                    <small class="text-muted">CHG</small>
+                                </div>
+                            </div>
+                        </h3>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="chg-amount-input" data-decimals="1" aria-label="CHG Coins amount" placeholder="CHG Coins amount" min="0.0" max="100000" step="100.0" value="0.0">
+                            </div>                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <button id="btn-chg-deposit" type="button" class="btn btn-lg btn-block btn-outline-primary">Deposit</button>
+                            </div>                            
+                            <div class="col">
+                                <button id="btn-chg-withdraw" type="button" class="btn btn-lg btn-block btn-outline-primary">Withdraw</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card mb-6 shadow-sm ">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">ETH Balance</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <h3 class="card-title pricing-card-title">
+                            <div class="row">
+                                <div class="col">
+                                    <span>Wallet: </span>
+                                </div>
+                                <div class="col">
+                                    <span id="eth-wallet-balance">0.00</span>
+                                    <small class="text-muted">ETH</small>
+                                </div>
+                            </div>
+                        </h3>
+                        <h3 class="card-title pricing-card-title">
+                            <div class="row">
+                                <div class="col">
+                                    <span>Market: </span>
+                                </div>
+                                <div class="col">
+                                    <span id="eth-market-balance">0.00</span>
+                                    <small class="text-muted">ETH</small>
+                                </div>
+                            </div>
+                        </h3>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="eth-amount-input" data-decimals="5" aria-label="ETH Coins amount" placeholder="ETH Coins amount" min="0.0" max="100000" step="0.1" value="0.0">
+                            </div>                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <button id="btn-eth-deposit" type="button" class="btn btn-lg btn-block btn-outline-primary">Deposit</button>
+                            </div>                            
+                            <div class="col">
+                                <button id="btn-eth-withdraw" type="button" class="btn btn-lg btn-block btn-outline-primary">Withdraw</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- ./balance -->
+
+
+
+            <!-- orders -->
+            <div class="card-deck mb-3 text-center">
+
+                <div class="card mb-6 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Sell Orders</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="tableFixHead">
+                                <table class="table table-hover table-dark">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Rate</th>
+                                        <th scope="col">Volume</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sell-orders-table">
+                                    </tbody>
+                                </table>                                                                    
+                                </div>                            
+                                <button id="btn-new-sell-order" type="button" class="btn btn-lg btn-block btn-outline-primary">New Order</button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-6 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Buy Orders</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="tableFixHead">
+                                <table class="table table-hover table-dark">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Rate</th>
+                                        <th scope="col">Volume</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="buy-orders-table">
+                                    </tbody>
+                                </table>                                                                    
+                                </div>                            
+                                <button id="btn-new-buy-order" type="button" class="btn btn-lg btn-block btn-outline-primary">New Order</button>
+                            </div>                            
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- ./orders -->
+
+            <br/>
+
+            <div class="card transaction-view" style="display:none">
+                <div class="card-body">
+                    <div><span class='transaction-link'></span></div>
+                </div>
+            </div>
+
+            <div id="allowance-warning" style="display:none">
+                <div class="alert alert-danger" role="alert">
+                    <div>The <span class="service-contract-address">Service Smart Contract</span> is locked for your account.</div>
+                    <div>
+                        Please aprove allowance for CHG Coins.              
+                        <button type="button" class="btn btn-secondary do-allowance-unlock">Unlock</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto flex-column">
+
+                <div class="row">
+
+                    <div id='node-block' class="col-sm-4">
+                        You are connected to: 
+                        <p id="eth-net">Custom Net</p>
+                        <div id="node-addr" style="max-width:350px;margin:auto;word-wrap:break-word;font-size:14px"></div>
+                    </div>
+            
+                    <div id='account-block' class="col-sm-4" style="display:none">
+                        Your Account: 
+                        <a id="eth-account" target="_blank" href="#">
+                            <div id="qrcode-img"></div>
+                        </a>
+                        <button id="btn-create-lightwallet-account" type="button" class="btn mx-auto btn-sm btn-outline-primary" style="display:none">
+                            Create a new Light Wallet account
+                        </button>
+                    </div>
+            
+                    <div id='balances-block' class="col-sm-4" style="display:none">
+                        Your Balance: <br/>
+                        <span id="eth-balance">0.0</span> ETH <br/>
+                        <span id="chg-balance">0.0</span> CHG
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            <p>Powered by <a href="https://chgcoin.org/">CHG Coin</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="chg-buy-modal" tabindex="-1" role="dialog" aria-labelledby="chg-buy-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chg-buy-modal-title">Buy CHG Coins</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label id="chg-buy-info"></label>
+                    <label>Enter the amount in CHG coins you want to buy</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-buy-amount" aria-label="CHG Coins buy amount" placeholder="CHG Coins buy amount" data-suffix="CHG" data-decimals="1" min="0.0" max="100000" step="10" value="0.0" >
+                        </div>
+                        <br/>   
+                        <h5>
+                            You will pay : 
+                            <span id="eth-give-amount">0.00</span>
+                            <small class="text-muted">ETH</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-outline-primary" id="btn-chg-buy">Buy CHG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="chg-sell-modal" tabindex="-1" role="dialog" aria-labelledby="chg-sell-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chg-sell-modal-title">Sell CHG Coins</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label id="chg-sell-info"></label>
+                    <label>Enter the amount in CHG coins you want to sell</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-sell-amount" aria-label="CHG Coins sell amount" placeholder="CHG Coins sell amount" data-suffix="CHG" data-decimals="1" min="0.0" max="100000" step="10" value="0.0" >
+                        </div>
+                        <br/>   
+                        <h5>
+                            You will receive : 
+                            <span id="eth-get-amount">0.00</span>
+                            <small class="text-muted">ETH</small>
+                        </h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-outline-primary" id="btn-chg-sell">Sell CHG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="chg-buy-order-modal" tabindex="-1" role="dialog" aria-labelledby="chg-buy-order-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chg-buy-order-modal-title">Add a new CHG Buy Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Enter the amount of CHG, ETH, or rate</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-buy-order-amount" aria-label="CHG Coins buy amount" placeholder="CHG Coins buy amount" data-prefix="Get" data-suffix="CHG" data-decimals="1" min="0.0" max="100000" step="50" value="0.0" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="eth-buy-order-amount" aria-label="ETH amount" placeholder="ETH amount" data-prefix="Give" data-suffix="ETH" data-decimals="5" min="0.0" max="100000" step="0.01" value="0.0" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-buy-order-rate" aria-label="CHG/ETH rate" placeholder="CHG/ETH rate" data-prefix="Rate" data-suffix="CHG/ETH" data-decimals="5" min="0.0" max="100000" step="0.00001" value="0.00015" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-buy-order-expire" aria-label="Expire in" placeholder="Expire in" data-prefix="Expire in" data-suffix="blocks" data-decimals="0" min="0.0" max="1000000" step="10000" value="100000" >
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-outline-primary" id="btn-chg-buy-order-add">Add Buy Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="chg-sell-order-modal" tabindex="-1" role="dialog" aria-labelledby="chg-sell-order-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chg-sell-order-modal-title">Add a new CHG Sell Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>Enter the amount of CHG, ETH, or rate</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-sell-order-amount" aria-label="CHG Coins sell amount" placeholder="CHG Coins sell amount" data-prefix="Give" data-suffix="CHG" data-decimals="1" min="0.0" max="100000" step="50" value="0.0" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="eth-sell-order-amount" aria-label="ETH amount" placeholder="ETH amount" data-prefix="Get" data-suffix="ETH" data-decimals="5" min="0.0" max="100000" step="0.01" value="0.0" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-sell-order-rate" aria-label="CHG/ETH rate" placeholder="CHG/ETH rate" data-prefix="Rate" data-suffix="CHG/ETH" data-decimals="5" min="0.0" max="100000" step="0.00001" value="0.00035" >
+                        </div>
+                        <br/>   
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="chg-sell-order-expire" aria-label="Expire in" placeholder="Expire in" data-prefix="Expire in" data-suffix="blocks" data-decimals="0" min="0.0" max="1000000" step="10000" value="100000" >
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-block btn-outline-primary" id="btn-chg-sell-order-add">Add Sell Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Modal -->
+    <div class="modal fade" id="create-lightwallet-account-modal" tabindex="-1" role="dialog" aria-labelledby="create-lightwallet-account-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create-lightwallet-account-title">New Lihgt Wallet Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Write these seed words and put into a secure place. </label>
+                <div id="create-wallet-seed" style="color:rgb(228, 177, 177); font-weight:700"></div>
+                <label>Use strong password to protect your wallet</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="create-lightwallet-account-password" aria-label="Strong password" placeholder="Strong password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-create-lightwallet-account">Create new account</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lightwallet-sign-modal" tabindex="-1" role="dialog" aria-labelledby="lightwallet-sign-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lightwallet-sign-modal-title">Sign the transaction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Enter your account password to sign the transaction</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="lightwallet-sign-password" aria-label="Your account password" placeholder="Your account password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-lightwallet-sign">Sign</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="client-mac" style="display: none;">$clientmac</div>
+    <div id="node-id" style="display: none;">$gatewayname</div>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-input-spinner.js"></script>
+    <script type="text/javascript" src="lib/qrcode.min.js"></script>
+
+</body>
+</html>

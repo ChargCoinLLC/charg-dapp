@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="CHG Coin Team">
+    <title>CHG DApp</title>
+    <link type="image/x-icon" rel="icon" href="images/favicon.ico">
+   
+    <!-- Bootstrap core CSS -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link href="lib/css/style.css" rel="stylesheet">
+    <style>
+        .onmap-info a {
+            color:navy
+        }
+    </style>  
+    
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-1 mx-auto flex-column">
+      
+        <header class="masthead mb-auto">
+
+            <div class="inner">
+                <h3 class="masthead-brand">
+                    <div class="logo">
+                        <a href="/">
+                            <img class="img img-responsive" src="images/logo.png">
+                        </a>
+                    </div>
+                </h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="market.html">Market</a>
+                    <a class="nav-link active" href="register.html">Register</a>
+                </nav>
+            </div>
+                      
+            <div class="inner">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <br/>
+                        <h1 class="cover-heading" id="node-register-title">Register the node.</h1>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <br/>
+            <p class="lead">Your <a target="_blank" href="https://chgcoin.org/"><b>Charg Coin (CHG)</b></a> balance must be greater than 500 CHG.</p>
+
+            <div id="mobile"></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 style="min-width:100%"> Enter node parameters and select location : </h5>
+                            <hr/>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Name : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-name" aria-label="Node Name" placeholder="Node Name" >
+                                </div>                            
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Location : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-location" aria-label="Location Address" placeholder="Location Address" >
+                                </div>                            
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Phone : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-phone" aria-label="Phone" placeholder="Phone" >
+                                </div>                            
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Connector : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-connector" aria-label="Connector Type" placeholder="Connector Type" >
+                                </div>                            
+
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Power : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-power" aria-label="Charg station power" placeholder="Charg station power" >
+                                </div>                            
+
+                                <hr/>
+                                
+                                <h5 style="min-width:100%"> Coordinates : </h5>
+
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Latitude : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-latitude" aria-label="Latitude" placeholder="Latitude" >
+                                </div> 
+
+                                <div class="input-group">
+                                    <h5 style="min-width:30%"> Longitude : </h5>
+                                    <input type="text" class="form-control" id="input-register-node-longitude" aria-label="Longitude" placeholder="Longitude" >
+                                </div>                            
+    
+                                <hr/>
+
+                                <h5 style="min-width:100%"> Services : </h5>
+
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="input-register-node-charg-rate" aria-label="CHG/Hour Cost" placeholder="CHG/Hour Cost" data-prefix="Charg:" data-suffix="CHG/Hr" data-decimals="3" min="0.0" max="100000" step="1" value="20" >
+                                </div>                            
+
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="input-register-node-park-rate" aria-label="CHG/Hour Cost" placeholder="CHG/Hour Cost" data-prefix="Park :" data-suffix="CHG/Hr" data-decimals="3" min="0.0" max="100000" step="0.1" value="2" >
+                                </div>                            
+        
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="input-register-node-inet-rate" aria-label="CHG/Hour Cost" placeholder="CHG/Hour Cost" data-prefix="WiFi :" data-suffix="CHG/Hr" data-decimals="3" min="0.0" max="100000" step="0.1" value="5" >
+                                </div>                            
+
+                                <hr/>
+
+                                <button type="button" class="btn btn-block btn-outline-primary" id="btn-register-node">Register</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 id="location-info" style="min-width:100%"> Move the green marker 
+                                <img src='http://maps.google.com/mapfiles/ms/icons/green-dot.png'>
+                                to the place where your station is located : </h5>
+                            <div id="map" style="height: 500px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card transaction-view" style="display:none">
+                <div class="card-body">
+                    <div><span class='transaction-link'></span></div>
+                </div>
+            </div>
+
+            <div id="allowance-warning" style="display:none">
+                <div class="alert alert-danger" role="alert">
+                    <div>The <span class="service-contract-address">Service Smart Contract</span> is locked for your account.</div>
+                    <div>
+                        Please aprove allowance for CHG Coins.              
+                        <button type="button" class="btn btn-secondary do-allowance-unlock">Unlock</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto flex-column">
+
+                <div class="row">
+
+                    <div id='node-block' class="col-sm-4">
+                        You are connected to: 
+                        <p id="eth-net">Custom Net</p>
+                        <div id="node-addr" style="max-width:350px;margin:auto;word-wrap:break-word;font-size:14px"></div>
+                    </div>
+            
+                    <div id='account-block' class="col-sm-4" style="display:none">
+                        Your Account: 
+                        <a id="eth-account" target="_blank" href="#">
+                            <div id="qrcode-img"></div>
+                        </a>
+                        <button id="btn-create-lightwallet-account" type="button" class="btn mx-auto btn-sm btn-outline-primary" style="display:none">
+                            Create a new Light Wallet account
+                        </button>
+                    </div>
+            
+                    <div id='balances-block' class="col-sm-4" style="display:none">
+                        Your Balance: <br/>
+                        <span id="eth-balance">0.0</span> ETH <br/>
+                        <span id="chg-balance">0.0</span> CHG
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            <p>Powered by <a href="https://chgcoin.org/">CHG Coin</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="create-lightwallet-account-modal" tabindex="-1" role="dialog" aria-labelledby="create-lightwallet-account-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create-lightwallet-account-title">New Lihgt Wallet Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Write these seed words and put into a secure place. </label>
+                <div id="create-wallet-seed" style="color:rgb(228, 177, 177); font-weight:700"></div>
+                <label>Use strong password to protect your wallet</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="create-lightwallet-account-password" aria-label="Strong password" placeholder="Strong password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-create-lightwallet-account">Create new account</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lightwallet-sign-modal" tabindex="-1" role="dialog" aria-labelledby="lightwallet-sign-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lightwallet-sign-modal-title">Sign the transaction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Enter your account password to sign the transaction</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="lightwallet-sign-password" aria-label="Your account password" placeholder="Your account password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-lightwallet-sign">Sign</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="client-mac" style="display: none;">$clientmac</div>
+    <div id="node-id" style="display: none;">$gatewayname</div>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-input-spinner.js"></script>
+    <script type="text/javascript" src="lib/qrcode.min.js"></script>
+
+
+    <script>
+        var map;
+        var marker;
+        var gpsLocation;
+
+        var getLocation = () => {
+            if (typeof navigator !== "undefined" && typeof navigator.geolocation !== "undefined") {
+                navigator.geolocation.getCurrentPosition(geolocationCallback, geolocationErrorHandler);
+            } else {
+                document.getElementById('location-info').innerHtml = "Your browser does not support the HTML5 Geolocation API";
+                console.log("Your browser does not support the HTML5 Geolocation API")
+            }
+        };
+
+        var geolocationCallback = function(location) {
+            var latitude = parseFloat(location.coords.latitude);
+            var longitude = parseFloat(location.coords.longitude);
+            gpsLocation = {lat: latitude, lng: longitude};
+            
+            document.getElementById('input-register-node-latitude').value = latitude;
+            document.getElementById('input-register-node-longitude').value = longitude;
+
+            map.setCenter(gpsLocation);
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                icon: {
+                    url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                },
+                animation: google.maps.Animation.DROP,
+                position: gpsLocation
+            });
+            //map.setZoom(8);
+            
+            google.maps.event.addListener(marker, 'dragend',
+                function(marker) {
+                    var latLng = marker.latLng;
+                    var currentLatitude = latLng.lat();
+                    var currentLongitude = latLng.lng();
+                    $("#input-register-node-latitude").val(currentLatitude);
+                    $("#input-register-node-longitude").val(currentLongitude);
+                }
+            );            
+        }
+
+        var geolocationErrorHandler = function(error) {
+            if (error.code == 1) {
+                document.getElementById('location-info').innerHtml = "Allow access to your location please";
+                console.error("Error: PERMISSION_DENIED: User denied access to their location");
+            } else if (error.code === 2) {
+                document.getElementById('location-info').innerHtml = "Network is down or positioning satellites cannot be reached";
+                console.error("Error: POSITION_UNAVAILABLE: Network is down or positioning satellites cannot be reached");
+            } else if (error.code === 3) {
+                document.getElementById('location-info').innerHtml = "Allow access to your location please";
+                console.error("Error: TIMEOUT: Calculating the user's location too took long");
+            } else {
+                console.error("Unexpected error code")
+            }
+            console.log(document.getElementById('location-info').innerHtml);
+        };
+        var initMap = () => {
+            var center = {lat: 0, lng: 0};
+                map = new google.maps.Map(document.getElementById('map'), {
+                mapTypeId: google.maps.MapTypeId.HYBRID,
+                zoom: 8,
+                center: center
+            });
+
+            getLocation();
+        }
+
+    </script>
+
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-aemNo88H7mBGGOER5n43v3WoLWPp3g&callback=initMap"></script>
+    
+</body>
+</html>

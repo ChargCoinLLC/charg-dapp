@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="CHG Coin Team">
+    <title>CHG DApp</title>
+    <link type="image/x-icon" rel="icon" href="images/favicon.ico">
+   
+    <!-- Bootstrap core CSS -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link href="lib/css/style.css?v=2" rel="stylesheet">
+
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-1 mx-auto flex-column">
+      
+        <header class="masthead mb-auto">
+
+            <div class="inner">
+                <h3 class="masthead-brand">
+                    <div class="logo">
+                        <a href="/">
+                            <img class="img img-responsive" src="images/logo.png">
+                        </a>
+                    </div>
+                </h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="market.html">Market</a>
+                    <a class="nav-link" href="register.html">Register</a>
+                </nav>
+            </div>
+                      
+            <div class="inner">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <br/>
+                        <h1 class="cover-heading">Energy is Money.</h1>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <br/>
+            <p class="lead">Using the power of the blockchain, <a target="_blank" href="https://chgcoin.org/"><b>Charg Coin (CHG)</b></a> facilitates crowdsourced energy distribution.</p>
+
+            <div id="mobile"></div>
+
+
+            <br/>
+
+
+            <div id="node-not-registered" style="display:none">
+                <div class="alert alert-danger" role="alert">
+                    This node is not registered yet !
+                </div>
+            </div>
+
+            <div id="node-registered" style="display:none">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3><div>Welcome to <span id='node-name'></span></div></h3>
+                        <div>Location : <span style="max-width:350px;margin:auto;word-wrap:break-word;font-size:16px" id='node-location'></span></div>
+                        <div>Phone : <span id='node-phone'></span></div>
+                        <div>Connector : <span id='node-connector'></span></div>
+                        <div>Power : <span id='node-power'></span></div>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="card-deck mb-3 text-center">
+
+                    <div class="card mb-4 shadow-sm charg-block" style="display:none">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Charging</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <h3 class="card-title pricing-card-title">
+                                <span id="charg-price">0.00</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted">/ hour</small>
+                            </h3>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="charg-hours-input" data-suffix="hour(s)" data-decimals="1" aria-label="Time (hours)" placeholder="Time (hours)" min="0.0" max="8" step="0.5" value="0.0">
+                                </div>                            
+                            </div>
+
+                            <h2 class="card-title pricing-card-title">
+                                <span id="charg-total">0.00</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted"></small>
+                            </h2>
+
+                            <button id="btn-charg-start" type="button" class="btn btn-lg btn-block btn-outline-primary">Start</button>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 shadow-sm park-block" style="display:none">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Parking</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <h3 class="card-title pricing-card-title">
+                                <span id="park-price">0.000</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted">/ hour</small>
+                            </h3>
+
+                            <input type="number" class="form-control" id="park-hours-input" data-suffix="hour(s)" data-decimals="1" aria-label="Time (hours)" placeholder="Time (hours)" min="0.0" max="240" step="0.5" value="0.0">
+
+                            <h1 class="card-title pricing-card-title">
+                                <span id="park-total">0.00</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted"></small>
+                            </h1>
+
+                            <button id="btn-park-start" type="button" class="btn btn-lg btn-block btn-outline-primary">Start</button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-4 shadow-sm inet-block" style="display:none">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">WiFi Internet</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <h3 class="card-title pricing-card-title">
+                                <span id="inet-price">0.000</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted">/ hour</small>
+                            </h3>
+
+                            <input type="number" class="form-control" id="inet-hours-input" data-suffix="hour(s)" data-decimals="1" aria-label="Time (hours)" placeholder="Time (hours)" min="0.0" max="240" step="0.5" value="0.0">
+
+                            <h1 class="card-title pricing-card-title">
+                                <span id="inet-total">0.00</span>
+                                <small class="currency text-muted">CHG</small>
+                                <small class="text-muted"></small>
+                            </h1>
+
+                            <button id="btn-inet-start" type="button" class="btn btn-lg btn-block btn-outline-primary">Start</button>
+
+                        </div>
+                    </div>
+
+    
+                </div>
+
+                <div class="mx-auto flex-column">
+                    <label>Pay in: </label>
+                    <select class="form-control mx-auto " id="select-currency">
+                        <option>CHG</option>
+                        <option>ETH</option>
+                        <option>BTC</option>
+                        <option>LTC</option>
+                        <option>USD</option>
+                    </select>
+                </div>
+
+                <br/>
+    
+
+
+
+
+
+            <div class="card transaction-view" style="display:none">
+                <div class="card-body">
+                    <div><span class='transaction-link'></span></div>
+                </div>
+            </div>
+
+            <div id="allowance-warning" style="display:none">
+                <div class="alert alert-danger" role="alert">
+                    <div>The <span class="service-contract-address">Service Smart Contract</span> is locked for your account.</div>
+                    <div>
+                        Please aprove allowance for CHG Coins.              
+                        <button type="button" class="btn btn-secondary do-allowance-unlock">Unlock</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto flex-column">
+
+                <div class="row">
+
+                    <div id='node-block' class="col-sm-4">
+                        You are connected to: 
+                        <p id="eth-net">Custom Net</p>
+                        <div id="node-addr" style="max-width:350px;margin:auto;word-wrap:break-word;font-size:14px"></div>
+                    </div>
+            
+                    <div id='account-block' class="col-sm-4" style="display:none">
+                        Your Account: 
+                        <a id="eth-account" target="_blank" href="#">
+                            <div id="qrcode-img"></div>
+                        </a>
+                        <button id="btn-create-lightwallet-account" type="button" class="btn mx-auto btn-sm btn-outline-primary" style="display:none">
+                            Create a new Light Wallet account
+                        </button>
+                    </div>
+            
+                    <div id='balances-block' class="col-sm-4" style="display:none">
+                        Your Balance: <br/>
+                        <span id="eth-balance">0.0</span> ETH <br/>
+                        <span id="chg-balance">0.0</span> CHG
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            <p>Powered by <a href="https://chgcoin.org/">CHG Coin</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="create-lightwallet-account-modal" tabindex="-1" role="dialog" aria-labelledby="create-lightwallet-account-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create-lightwallet-account-title">New Lihgt Wallet Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Write these seed words and put into a secure place. </label>
+                <div id="create-wallet-seed" style="color:rgb(228, 177, 177); font-weight:700"></div>
+                <label>Use strong password to protect your wallet</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="create-lightwallet-account-password" aria-label="Strong password" placeholder="Strong password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-create-lightwallet-account">Create new account</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lightwallet-sign-modal" tabindex="-1" role="dialog" aria-labelledby="lightwallet-sign-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lightwallet-sign-modal-title">Sign the transaction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Enter your account password to sign the transaction</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="lightwallet-sign-password" aria-label="Your account password" placeholder="Your account password" >
+                    </div>                            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-block btn-outline-primary" id="btn-do-lightwallet-sign">Sign</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="client-mac" style="display: none;">$clientmac</div>
+    <div id="node-id" style="display: none;">$gatewayname</div>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-input-spinner.js"></script>
+    <script type="text/javascript" src="lib/qrcode.min.js"></script>
+
+</body>
+</html>

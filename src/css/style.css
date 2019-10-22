@@ -1,0 +1,136 @@
+
+    .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+
+    /* Links */
+    a, a:focus, a:hover {
+        color: #fff;
+    }
+
+    /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+        color: #333;
+        text-shadow: none; /* Prevent inheritance from `body` */
+        background-color: #fff;
+        border: .05rem solid #fff;
+    }
+    select {
+        max-width: 150px;
+    }
+
+    html,
+    body {
+        height: 100%;
+        background-color: #333;
+    }
+
+    body {
+        display: -ms-flexbox;
+        display: flex;
+        color: #fff;
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    }
+
+    .cover-container {
+        max-width: 72em;
+    }
+
+    .masthead {
+        margin-bottom: 5rem;
+    }
+
+    .masthead-brand {
+        margin-bottom: 0;
+    }
+
+    .nav-masthead .nav-link {
+        padding: .25rem 0;
+        font-weight: 700;
+        color: rgba(255, 255, 255, .5);
+        background-color: transparent;
+        border-bottom: .25rem solid transparent;
+    }
+
+    .nav-masthead .nav-link:hover,
+    .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+    }
+
+    .nav-masthead .nav-link + .nav-link {
+        margin-left: 1rem;
+    }
+
+    .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+
+    .card {
+        background-color: #443f3f;
+    }
+        
+    .card-header {
+        background-color: #697b8e;
+    }
+
+    .card-body {
+        background-color: #2c3d4e;
+    }
+    
+    .form-control {
+        background-color: #2c3d4e;
+        color:#fff;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .input-group-text {
+        background-color: #2c3d4e;
+        color:#fff;
+    }
+
+    .modal-content {
+        background-color: #2c3d4e;
+        color:#fff;
+    }
+
+    @media (min-width: 48em) {
+        .masthead-brand {
+            float: left;
+        }
+        .nav-masthead {
+            float: right;
+        }
+    }
+
+    .cover {
+        padding: 0 1.5rem;
+    }
+    .cover .btn-lg {
+        padding: .75rem 1.25rem;
+        font-weight: 700;
+    }
+
+    .tableFixHead          { overflow-y: auto; max-height: 250px; }
+    .tableFixHead thead th { position: sticky; top: 0; }
+
+    table  { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px 10px; max-height: 10px; }
+    th     { background: #39406f; }
+
